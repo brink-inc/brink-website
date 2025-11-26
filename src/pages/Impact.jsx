@@ -7,11 +7,13 @@ import {
   Award,
   Lightbulb,
 } from "lucide-react";
+
 import { useTheme } from "../context/ThemeContext";
 import { containerVariants, itemVariants } from "../utils/helper";
 import ImageCarousel from "../components/ImageCarousel";
 
-// PUBLIC image paths — no imports needed
+// IMPORTANT: Public folder images use ABSOLUTE PATHS
+// Make sure images are inside:  public/assets/
 const impactImages = [
   "/assets/IMG-20251125-WA0009.jpg",
   "/assets/IMG-20251125-WA0010.jpg",
@@ -31,7 +33,7 @@ const impactImages = [
 ];
 
 export default function Impact() {
-  const { theme } = useTheme();
+  const { isDarkMode } = useTheme(); // FIXED: theme → isDarkMode
 
   const stats = [
     {
@@ -79,13 +81,13 @@ export default function Impact() {
   return (
     <div
       className={`min-h-screen ${
-        theme === "dark" ? "bg-gray-900 text-white" : "bg-gray-100 text-gray-900"
+        isDarkMode ? "bg-gray-900 text-white" : "bg-gray-100 text-gray-900"
       } pb-20`}
     >
       {/* Hero Section */}
       <section
         className={`py-24 text-center ${
-          theme === "dark" ? "bg-gray-800" : "bg-white"
+          isDarkMode ? "bg-gray-800" : "bg-white"
         }`}
       >
         <motion.h1
@@ -96,6 +98,7 @@ export default function Impact() {
         >
           Our Impact
         </motion.h1>
+
         <motion.p
           className="max-w-2xl mx-auto text-lg opacity-80"
           initial={{ opacity: 0 }}
@@ -119,7 +122,7 @@ export default function Impact() {
             <motion.div
               key={index}
               className={`p-8 rounded-xl shadow-lg text-center ${
-                theme === "dark" ? "bg-gray-800" : "bg-white"
+                isDarkMode ? "bg-gray-800" : "bg-white"
               }`}
               variants={itemVariants}
             >
@@ -132,7 +135,7 @@ export default function Impact() {
         </motion.div>
       </section>
 
-      {/* Image Carousel Section */}
+      {/* Gallery Section */}
       <section className="py-16">
         <motion.h2
           className="text-3xl font-bold text-center mb-10"
@@ -142,6 +145,7 @@ export default function Impact() {
         >
           Moments of Impact
         </motion.h2>
+
         <div className="max-w-4xl mx-auto px-6">
           <ImageCarousel images={impactImages} />
         </div>
