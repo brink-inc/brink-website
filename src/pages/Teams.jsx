@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
 import { useTheme } from "../context/ThemeContext";
 import { containerVariants, itemVariants } from "../utils/helper";
-import fosterOppong from "../assets/Foster Oppong.jpg";
-import headshots from "../assets/Headshots 09-01-25-29.jpg";
-import oneDog from "../assets/OneDog 101-23.jpg";
+import fosterOppong from "../assets/FosterOppong.jpg";
+import headshots from "../assets/Headshots09-01-25-29.jpg";
+import oneDog from "../assets/OneDog101-23.jpg";
 
 const Teams = () => {
   const { isDarkMode } = useTheme();
